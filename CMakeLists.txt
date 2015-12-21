@@ -30,9 +30,9 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/config/source_dirs.cmake)
 
 # Enable C++11
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR EMSCRIPTEN)
-	list(APPEND CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libc++")
+	set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-std=c++11 -stdlib=libc++")
 elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-	list(APPEND CMAKE_CXX_FLAGS "-std=gnu++0x -fno-operator-names")
+	set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-std=gnu++0x -fno-operator-names")
 endif()
 
 # Enable Emscripten, if requested (-DEMSCRIPTEN=1).
